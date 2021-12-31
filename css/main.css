@@ -1,0 +1,49 @@
+/* Reste rules */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content-msg {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 151, 151);
+}
+
+.map-content {
+    width: 100%;
+    height: 550px;
+}
+
+.map-content img {
+    width: 100%;
+    height: 550px;
+}
+
+.msg-content {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0 5px;
+    padding:15px 15px 15px 15px;
+    background-color: rgb(26, 199, 199);
+    font-family: Verdana;
+    font-size: 18px;
+    border: 2px solid rgb(190, 200, 243);
+    color: rgb(196, 65, 65);
+    overflow: hidden;
+}
