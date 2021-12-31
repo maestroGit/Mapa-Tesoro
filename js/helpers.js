@@ -70,7 +70,7 @@ const deleteMessage = () => {
 const showCoords = (event) => {
   var x = event.clientX;
   var y = event.clientY;
-  var coor = "X: " + x + ", Y: " + y;
+  var coor = x + "/" + y;
   document.getElementById("demo").innerHTML = coor;
 };
 
