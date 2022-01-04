@@ -20,6 +20,15 @@ map.addEventListener("click", detectClickPosition);
 const position = document.getElementById('map');
 position.addEventListener ('mousemove', showCoords);
 
+// Closed modal
+
+const closeBtn = document.getElementById('closedBtn');
+closedBtn.addEventListener ('click',function(){
+  console.log('event do it');
+  const modal = document.getElementById('modal');
+  modal.style.visibility="hidden";
+})
+
 
 
 

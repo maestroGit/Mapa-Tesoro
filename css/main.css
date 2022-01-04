@@ -1,63 +1,107 @@
-/* Reste rules */
+/* Reset rules */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.main-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.main-content-msg {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(25, 151, 151);
-}
-
 .map-content {
-    width: 100%;
-    height: 550px;
+  width: 100%;
+  height: 100%;
 }
 
 .map-content img {
-    width: 100%;
-    height: 550px;
+  width: 100%;
+  height: 550px;
+}
+
+.main-content-msg {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }
 
 .msg-content {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-    align-items: center;
-    margin: 5px 0 5px;
-    padding:15px 15px 15px 15px;
-    background-color: rgb(26, 199, 199);
-    font-family: Verdana;
-    font-size: 18px;
-    border: 2px solid rgb(190, 200, 243);
-    color: rgb(196, 65, 65);
-    overflow: hidden;
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 5px;
+  padding: 15px 15px 15px 15px;
+  background-color: rgb(26, 199, 199);
+  font-family: Verdana;
+  font-size: 18px;
+  border: 2px solid rgb(190, 200, 243);
+  color: rgb(196, 65, 65);
+  overflow: hidden;
 }
 
 .msg-content-min {
-    width: min-width;
-    justify-content: center;
-    align-items: center;
-    margin: 5px 0 5px;
-    padding:15px 15px 15px 15px;
-    background-color: rgb(26, 199, 199);
-    font-family: Verdana;
-    font-size: 18px;
-    border: 2px solid rgb(190, 200, 243);
-    color: rgb(196, 65, 65);
-    overflow: hidden;
+  width: min-width;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 5px;
+  padding: 15px 15px 15px 15px;
+  background-color: rgb(26, 199, 199);
+  font-family: Verdana;
+  font-size: 18px;
+  border: 2px solid rgb(190, 200, 243);
+  color: rgb(196, 65, 65);
+  overflow: hidden;
+}
+
+/* modal windo */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 15px;
+  background-color: rgba(175, 165, 72, 0.568);
+  visibility:visible;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 700px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.modal-top {
+  background-color: rgb(243, 245, 155);
+  display: flex;
+  padding: 0 5px;
+  font-size: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.modal-title {
+  flex-grow: 1;
+  font-size: 30px;
+}
+
+.btn-close {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.modal-text {
+  padding: 15px 15px;
+  font-size: 25px;
 }
