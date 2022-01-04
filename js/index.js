@@ -24,7 +24,6 @@ position.addEventListener ('mousemove', showCoords);
 
 const closeBtn = document.getElementById('closedBtn');
 closedBtn.addEventListener ('click',function(){
-  console.log('event do it');
   const modal = document.getElementById('modal');
   modal.style.visibility="hidden";
 })
