@@ -8,11 +8,7 @@ const numRandom = (size) => {
 
 // Detect click position
 const detectClickPosition = (e) => {
-  // const coordX = e.clientX;
-  // const coordY = e.clientY;
-  // console.log(coordX, coordY);
   const UserPoint = { Xcoord: e.clientX, Ycoord: e.clientY };
-  console.log(UserPoint);
   getDistance(UserPoint);
   intentos++;
   showIntentos(intentos);
@@ -22,7 +18,6 @@ const detectClickPosition = (e) => {
 const getDistance = (UserPoint) => {
   let difX = treasurePoint.Xcoord - UserPoint.Xcoord;
   let difY = treasurePoint.Ycoord - UserPoint.Ycoord;
-  console.log(difX, ":", difY);
   // Aplicar teorema de pitagoras para hayar distance=hipotenusa catetos=difX y difY
   let result = Math.sqrt(difX * difX + difY * difY);
   getMessage(result);
@@ -31,8 +26,10 @@ let game = 0;
 // Get distance advaice tempeture
 const getMessage = (distance) => {
   if (distance < 30) {
-    message.innerHTML = `CONGRATS, you found it in: ${intentos + 1} attemps`;
+    //message.innerHTML = `CONGRATS, you found it in: ${intentos + 1} attemps`;
+    foundTresore();
     deleteMessage();
+    saveStorage(intentos);
     setInterval(restart,5000);
   } else if (distance < 50) {
     distmsg.innerHTML = Math.floor(distance);
@@ -74,16 +71,22 @@ const showCoords = (event) => {
   document.getElementById("demo").innerHTML = coor;
 };
 
+const foundTresore = ()=>{
+  message.innerHTML = `CONGRATS, you found it in: ${intentos + 1} attemps`;
+  document.getElementById("map-img").src='./img/chest-treasure.jpg';
+}
+
 // Web storage objects localStorage and sessionStorage allow to save key/value pairs in the browser.
 // localstore solo almacena strings - para serializar como un json usamos: JSON.stringify
 const saveStorage = (intentos) => {
-  console.log("localStorage", intentos);
+  const date = Date.now();
+  //console.log(typeof(date));
   let player = {
-    sesion: "sesion",
-    intentos: intentos
+    'sesion':date,
+    'intentos': intentos
   };
   localStorage.setItem("intentos", intentos);
-  localStorage.setItem("Player", JSON.stringify(player));
+  localStorage.setItem(date, JSON.stringify(player));
 };
 
 const restart = () => {
