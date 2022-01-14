@@ -67,7 +67,7 @@
   box-sizing: border-box;
   padding: 15px;
   background-color: rgba(175, 165, 72, 0.568);
-  visibility:visible;
+  visibility: visible;
 }
 
 .modal-content {
@@ -104,4 +104,22 @@
 .modal-text {
   padding: 15px 15px;
   font-size: 25px;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+td, th {
+  border: 2px solid rgb(0, 153, 0);
+  padding: 12px 15 px;
+  background-color: #99f183;
+  border-bottom: 1px solid #e21212;
+  text-align: center;
+
 }

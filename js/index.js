@@ -5,7 +5,9 @@ const map = document.getElementById("map");
 const message = document.getElementById("message");
 const distmsg = document.getElementById("distance");
 const intentmsg = document.getElementById("intentos");
-let intentos = 0;
+let intentos = 1;
+let date = window.localStorage.length;
+let game = 0;
 
 // Create random treasure
 const treasurePoint = {
@@ -14,14 +16,13 @@ const treasurePoint = {
 };
 console.log(`Coordenadas del tesoro:${treasurePoint.Xcoord}:${treasurePoint.Ycoord}`);
 
-// Usser clicked on map
+// Usser events
+// clicked on map
 map.addEventListener("click", detectClickPosition);
-
-const position = document.getElementById('map');
-position.addEventListener ('mousemove', showCoords);
+// mousemove on map
+map.addEventListener ('mousemove', showCoords);
 
 // Closed modal
-
 const closeBtn = document.getElementById('closedBtn');
 closedBtn.addEventListener ('click',function(){
   const modal = document.getElementById('modal');
