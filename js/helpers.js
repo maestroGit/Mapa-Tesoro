@@ -33,7 +33,7 @@ const getMessage = (distance) => {
     foundTresore();
     deleteMessage();
     saveStorage(intentos);
-    //setInterval(restart, 6000);
+    setInterval(restart, 6000);
   } else if (distance < 50) {
     distmsg.innerHTML = Math.floor(distance);
     message.innerHTML = "REALLY HOT";
