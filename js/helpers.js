@@ -59,7 +59,7 @@ const deleteMessage = () => {
   let distance = document.getElementById("distance");
   distance.parentNode.removeChild(distance);
   let intentos = document.getElementById("message");
-  intentos.style.width = "70%";
+  intentos.style.width = "90%";
   intentos.style.background = "yellow";
 };
 
@@ -124,7 +124,7 @@ const returnArray = (localStorage) => {
     // Create html table
     const storelocalDiv = document.createElement("div");
     storelocalDiv.id = "score";
-    storelocalDiv.className = "main-content-msg"
+    storelocalDiv.className = "main-content-table"
     storelocalDiv.innerHTML = `<table class ="content-table">
       <tr>
       <th>Total Games</th>
