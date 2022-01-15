@@ -127,10 +127,9 @@ th {
 .content-table {
   border-collapse: collapse;
   margin: 0px 0px;
-  font-size: 0.9em;
+  font-size: 0.7em;
   font-family: sans-serif;
   min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Cuando la pantalla es menor a 900px  (tablets y teléfonos inteligentes)*/
@@ -147,4 +146,14 @@ th {
     margin: 5px 0px 5px;
     padding: 15px 15px 15px 10px;
   }
+
+  /* Table */
+td,
+th {
+  border: 2px solid rgb(0, 153, 0);
+  padding: 1px 0px;
+  background-color: #99f183;
+  border-bottom: 1px solid #e21212;
+  text-align: center;
+}
 }
