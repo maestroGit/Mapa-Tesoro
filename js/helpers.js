@@ -15,7 +15,20 @@ const detectClickPosition = (e) => {
 };
 
 const showIntentos = (intentos) => {
-  intentmsg.innerHTML = intentos;
+  if (intentmsg) {
+    intentmsg.innerHTML = intentos;
+  }
+};
+
+// Copy to clipBoard
+const secretClipBoard = () => {
+  navigator.geolocation.getCurrentPosition(success, error);
+  let texto =
+    "Si has llegado hasta aquí estás cerca de la recompensa \n 42.63169393537795, 0.6565823348016667 \n ¿Qué lugar marcan las coordenadas? \n Etiqueta @walkexperience con la respuesta en Instagram o Twitter y recibirás tu premio";
+  document.oncopy = (event) => {
+    event.preventDefault();
+    event.clipboardData.setData("text/plain", texto);
+  };
 };
 
 // Mesure distance between two points
@@ -33,21 +46,27 @@ const getMessage = (distance) => {
     foundTresore();
     deleteMessage();
     saveStorage(intentos);
-    setInterval(restart, 6000);
+    secretClipBoard();
+    setInterval(restart, 8000);
   } else if (distance < 50) {
     distmsg.innerHTML = Math.floor(distance);
+    message.style.backgroundColor = "rgba(255, 0, 0, 1)";
     message.innerHTML = "REALLY HOT";
   } else if (distance < 70) {
     distmsg.innerHTML = Math.floor(distance);
+    message.style.backgroundColor = "rgba(255, 111, 1, 0.8)";
     message.innerHTML = "HOT";
   } else if (distance < 100) {
     distmsg.innerHTML = Math.floor(distance);
+    message.style.backgroundColor = "rgba(255, 67, 206, 0.8)";
     message.innerHTML = "WARM";
   } else if (distance < 200) {
     distmsg.innerHTML = Math.floor(distance);
+    message.style.backgroundColor = "rgba(0, 57, 255, 0.6)";
     message.innerHTML = "COLD";
   } else if (distance > 201) {
     distmsg.innerHTML = Math.floor(distance);
+    message.style.backgroundColor = "rgba(0, 57, 255, 0.8)";
     message.innerHTML = "VERY COLD";
   }
 };
@@ -56,6 +75,7 @@ const deleteMessage = () => {
   intentmsg.parentNode.removeChild(intentmsg);
   let coords = document.getElementById("coords");
   coords.parentNode.removeChild(coords);
+  mousecoords = false;
   let distance = document.getElementById("distance");
   distance.parentNode.removeChild(distance);
   let intentos = document.getElementById("message");
@@ -64,16 +84,22 @@ const deleteMessage = () => {
 };
 
 const showCoords = (event) => {
-  var x = event.clientX;
-  var y = event.clientY;
-  var coor = x + "/" + y;
-  document.getElementById("coords").innerHTML = coor;
+  if (mousecoords == true) {
+    var x = event.clientX;
+    var y = event.clientY;
+    var coor = x + "/" + y;
+    document.getElementById("coords").innerHTML = coor;
+  }
 };
 
 const foundTresore = () => {
-  message.innerHTML = `CONGRATS, you found it in: ${intentos} attemps`;
-  document.getElementById("map-img").src = "./img/chest-treasure.jpg";
+  message.innerHTML = `Encontrado en ${intentos} intentos. Rápido, tienes 8 segundo code:  jA@j7-aKOug  en el Block Notas y veras como obtener tu recompensa`;
+  const imgTresor = document.getElementById("map-img");
+  imgTresor.src = "./img/chest-treasure.jpg";
+  imgTresor.style.height = "350px";
 };
+
+// Draw
 
 // Web storage objects localStorage and sessionStorage allow to save key/value pairs in the browser.
 // localstore solo almacena strings - para serializar como un json usamos: JSON.stringify
@@ -124,7 +150,7 @@ const returnArray = (localStorage) => {
     // Create html table
     const storelocalDiv = document.createElement("div");
     storelocalDiv.id = "score";
-    storelocalDiv.className = "main-content-table"
+    storelocalDiv.className = "main-content-table";
     storelocalDiv.innerHTML = `<table class ="content-table">
       <tr>
       <th>Total Games</th>
@@ -134,7 +160,7 @@ const returnArray = (localStorage) => {
       <tr>
       <td>${games}</td>
       <td>${listaGames[0].intentos}</td>
-      <td>${listaGames[games-1].intentos}</td>
+      <td>${listaGames[games - 1].intentos}</td>
       </tr>
       </table>`;
     document.body.appendChild(storelocalDiv);

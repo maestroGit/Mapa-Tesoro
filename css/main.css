@@ -37,7 +37,7 @@
   background-color: rgb(26, 199, 199);
   font-family: Verdana;
   border: 2px solid rgb(190, 200, 243);
-  color: rgb(196, 65, 65);
+  color: rgb(7, 0, 0);
   overflow: hidden;
 }
 
@@ -50,7 +50,7 @@
   background-color: rgb(26, 199, 199);
   font-family: Verdana;
   border: 2px solid rgb(190, 200, 243);
-  color: rgb(196, 65, 65);
+  color: rgb(0, 0, 0);
   overflow: hidden;
 }
 
@@ -112,7 +112,7 @@ td,
 th {
   border: 2px solid rgb(0, 153, 0);
   padding: 15px 0px;
-  background-color: #99f183;
+  background-color: #fffc4e;
   border-bottom: 1px solid #e21212;
   text-align: center;
 }
@@ -152,7 +152,7 @@ td,
 th {
   border: 2px solid rgb(0, 153, 0);
   padding: 1px 0px;
-  background-color: #99f183;
+  background-color: #fffc4e;
   border-bottom: 1px solid #e21212;
   text-align: center;
 }

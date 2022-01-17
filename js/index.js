@@ -8,27 +8,36 @@ const intentmsg = document.getElementById("intentos");
 let intentos = 1;
 let date = window.localStorage.length;
 let game = 0;
+let mousecoords = true;
+
+//Geolocation
+const success = (pos) => {
+  var crd = pos.coords;
+  console.log(`Your current position is Latitude : ${crd.latitude} and Longitude ${crd.longitude}`
+  );
+};
+const error = (err) => {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+};
 
 // Create random treasure
 const treasurePoint = {
   Xcoord: numRandom(width),
   Ycoord: numRandom(height),
 };
-console.log(`Coordenadas del tesoro:${treasurePoint.Xcoord}:${treasurePoint.Ycoord}`);
+console.log(
+  `Coordenadas del tesoro:${treasurePoint.Xcoord}:${treasurePoint.Ycoord}`
+);
 
 // Usser events
 // clicked on map
 map.addEventListener("click", detectClickPosition);
 // mousemove on map
-map.addEventListener ('mousemove', showCoords);
+map.addEventListener("mousemove", showCoords);
 
 // Closed modal
-const closeBtn = document.getElementById('closedBtn');
-closedBtn.addEventListener ('click',function(){
-  const modal = document.getElementById('modal');
-  modal.style.visibility="hidden";
-})
-
-
-
-
+const closeBtn = document.getElementById("closedBtn");
+closedBtn.addEventListener("click", function () {
+  const modal = document.getElementById("modal");
+  modal.style.visibility = "hidden";
+});
