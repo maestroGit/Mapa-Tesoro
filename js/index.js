@@ -6,19 +6,9 @@ const message = document.getElementById("message");
 const distmsg = document.getElementById("distance");
 const intentmsg = document.getElementById("intentos");
 let intentos = 1;
-let date = window.localStorage.length;
+let numgame = window.localStorage.length;
 let game = 0;
 let mousecoords = true;
-
-//Geolocation
-const success = (pos) => {
-  var crd = pos.coords;
-  console.log(`Your current position is Latitude : ${crd.latitude} and Longitude ${crd.longitude}`
-  );
-};
-const error = (err) => {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-};
 
 // Create random treasure
 const treasurePoint = {
@@ -34,6 +24,10 @@ console.log(
 map.addEventListener("click", detectClickPosition);
 // mousemove on map
 map.addEventListener("mousemove", showCoords);
+
+// Geolocation
+//navigator.geolocation.getCurrentPosition(success, error);
+
 
 // Closed modal
 const closeBtn = document.getElementById("closedBtn");

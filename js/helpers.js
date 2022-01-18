@@ -22,7 +22,6 @@ const showIntentos = (intentos) => {
 
 // Copy to clipBoard
 const secretClipBoard = () => {
-  navigator.geolocation.getCurrentPosition(success, error);
   let texto =
     "Si has llegado hasta aquí estás cerca de la recompensa \n 42.63169393537795, 0.6565823348016667 \n ¿Qué lugar marcan las coordenadas? \n Etiqueta @walkexperience con la respuesta en Instagram o Twitter y recibirás tu premio";
   document.oncopy = (event) => {
@@ -105,16 +104,16 @@ const foundTresore = () => {
 // localstore solo almacena strings - para serializar como un json usamos: JSON.stringify
 const saveStorage = (intentos) => {
   console.log(localStorage.length);
-  console.log(`date: ${date}`);
+  console.log(`numgame: ${numgame}`);
   if (localStorage.length == 0) {
     console.log("localStore is empty");
   }
-  date++;
+  numgame++;
   let player = {
-    sesion: date,
+    sesion: numgame,
     intentos: intentos,
   };
-  localStorage.setItem(date, JSON.stringify(player));
+  localStorage.setItem(numgame, JSON.stringify(player));
 
   returnArray(localStorage);
 };
@@ -181,6 +180,13 @@ const sortGames = (listaGames) => {
 const restart = () => {
   location.reload();
 };
-//Read localStorage Pasar de string a objeto json usamos JSON.parse(localStore.getItem(""));
-// const readLocalStorage = (){};
-// if exists ... localstorage.getItem("key")
+
+// Geolocation
+const success = (pos) => {
+  var crd = pos.coords;
+  console.log(`Your current position is Latitude : ${crd.latitude} and Longitude ${crd.longitude}`
+  );
+};
+const error = (err) => {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+};
