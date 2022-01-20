@@ -92,7 +92,7 @@ const showCoords = (event) => {
 };
 
 const foundTresore = () => {
-  message.innerHTML = `Encontrado en ${intentos} intentos. Rápido, tienes 8 segundo code:  jA@j7-aKOug  en el Block Notas y veras como obtener tu recompensa`;
+  message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>en el Block Notas y veras como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
   const imgTresor = document.getElementById("map-img");
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";

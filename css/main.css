@@ -132,6 +132,12 @@ th {
   min-width: 400px;
 }
 
+.text {
+  color: rgb(251, 27, 7);
+  background-color:white;
+  font-size: px;
+}
+
 /* Cuando la pantalla es menor a 900px  (tablets y teléfonos inteligentes)*/
 @media only screen and (max-width: 900px) {
   .main-content-msg {
@@ -155,5 +161,17 @@ th {
   background-color: #fffc4e;
   border-bottom: 1px solid #e21212;
   text-align: center;
+}
+
+.modal-text {
+  padding: 5px 5px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.text {
+  color: rgb(251, 27, 7);
+  background-color:white;
+  font-size: 12px;
 }
 }
