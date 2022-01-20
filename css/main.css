@@ -135,7 +135,7 @@ th {
 .text {
   color: rgb(251, 27, 7);
   background-color:white;
-  font-size: px;
+  font-size: 30px;
 }
 
 /* Cuando la pantalla es menor a 900px  (tablets y teléfonos inteligentes)*/
@@ -165,7 +165,7 @@ th {
 
 .modal-text {
   padding: 5px 5px;
-  font-size: 10px;
+  font-size: 14px;
   text-align: center;
 }
 
