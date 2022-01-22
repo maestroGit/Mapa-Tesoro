@@ -1,16 +1,25 @@
-// Con screen.width obtenemos el ancho en pixels de la resolución de pantalla
-let width = screen.width;
+// Diferentes formas de obtener el ancho en pixels
+let width = window.innerWidth;
+console.log("screen view: ",screen.width);
+let widthClientInner = window.innerWidth;
+console.log("innerWidth: ",widthClientInner);
+let widthClientOuter = window.outerWidth;
+console.log("outerWidth: ",widthClientOuter);
 let height = 500;
+// Elementos del DOM
 const map = document.getElementById("map");
 const message = document.getElementById("message");
 const distmsg = document.getElementById("distance");
 const intentmsg = document.getElementById("intentos");
+const closeBtn = document.getElementById("closedBtn");
+
+// Variables
 let intentos = 1;
 let numgame = window.localStorage.length;
 let game = 0;
 let mousecoords = true;
 
-// Create random treasure
+// Create objecte (tabla de hash) treasurePoint width random values
 const treasurePoint = {
   Xcoord: numRandom(width),
   Ycoord: numRandom(height),
@@ -25,13 +34,11 @@ map.addEventListener("click", detectClickPosition);
 // mousemove on map
 map.addEventListener("mousemove", showCoords);
 
-// Geolocation
-//navigator.geolocation.getCurrentPosition(success, error);
-
-
 // Closed modal
-const closeBtn = document.getElementById("closedBtn");
-closedBtn.addEventListener("click", function () {
+closeBtn.addEventListener("click", function () {
   const modal = document.getElementById("modal");
   modal.style.visibility = "hidden";
 });
+
+// Geolocation
+// navigator.geolocation.getCurrentPosition(success, error);

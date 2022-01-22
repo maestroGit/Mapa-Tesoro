@@ -111,7 +111,7 @@
 td,
 th {
   border: 2px solid rgb(0, 153, 0);
-  padding: 15px 0px;
+  padding: 10px 0px;
   background-color: #fffc4e;
   border-bottom: 1px solid #e21212;
   text-align: center;
@@ -127,24 +127,24 @@ th {
 .content-table {
   border-collapse: collapse;
   margin: 0px 0px;
-  font-size: 0.7em;
+  font-size: 1em;
   font-family: sans-serif;
   min-width: 400px;
 }
 
 .text {
   color: rgb(251, 27, 7);
-  background-color:white;
+  background-color: white;
   font-size: 30px;
 }
 
-/* Cuando la pantalla es menor a 900px  (tablets y teléfonos inteligentes)*/
+/* When the screen is less than 900px  (tablets and smartphone)*/
 @media only screen and (max-width: 900px) {
   .main-content-msg {
     justify-content: center;
     align-items: start;
     background-color: white;
-    font-size: 10px;
+    font-size: 0.6em;
     padding: 11px;
   }
 
@@ -154,24 +154,24 @@ th {
   }
 
   /* Table */
-td,
-th {
-  border: 2px solid rgb(0, 153, 0);
-  padding: 1px 0px;
-  background-color: #fffc4e;
-  border-bottom: 1px solid #e21212;
-  text-align: center;
-}
+  td,
+  th {
+    border: 2px solid rgb(0, 153, 0);
+    padding: 1px 0px;
+    background-color: #fffc4e;
+    border-bottom: 1px solid #e21212;
+    text-align: center;
+  }
 
-.modal-text {
-  padding: 5px 5px;
-  font-size: 14px;
-  text-align: center;
-}
+  .modal-text {
+    padding: 5px 5px;
+    font-size: 0.9em;
+    text-align: center;
+  }
 
-.text {
-  color: rgb(251, 27, 7);
-  background-color:white;
-  font-size: 12px;
-}
+  .text {
+    color: rgb(251, 27, 7);
+    background-color: white;
+    font-size: 12px;
+  }
 }

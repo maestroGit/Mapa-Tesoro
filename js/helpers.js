@@ -1,7 +1,5 @@
-// Ramdom position
-// Returns a random number between min (inclusive) and max (exclusive)
-// Math.random() returns a Number between 0 (inclusive) and 1 (exclusive). So we have an interval like this:
-// 1 -> Tamaño img
+// numRamdom returns a random number between min (inclusive) and max (exclusive)
+// Math.random() returns a Number between 0 (inclusive) and 1 (exclusive). So we have an interval like this: 1 -> Tamaño img
 const numRandom = (size) => {
   return Math.floor(Math.random() * size);
 };
@@ -14,6 +12,7 @@ const detectClickPosition = (e) => {
   showIntentos(intentos);
 };
 
+// Show number off times
 const showIntentos = (intentos) => {
   if (intentmsg) {
     intentmsg.innerHTML = intentos;
@@ -34,7 +33,7 @@ const secretClipBoard = () => {
 const getDistance = (UserPoint) => {
   let difX = treasurePoint.Xcoord - UserPoint.Xcoord;
   let difY = treasurePoint.Ycoord - UserPoint.Ycoord;
-  // Aplicar teorema de pitagoras para hayar distance=hipotenusa catetos=difX y difY
+  // Aplicar teorema de pitagoras para hayar distance (hipotenusa) que es igual a la suma de los cuadrados de los catetos (difX difY).
   let result = Math.sqrt(difX * difX + difY * difY);
   getMessage(result);
 };
@@ -46,7 +45,7 @@ const getMessage = (distance) => {
     deleteMessage();
     saveStorage(intentos);
     secretClipBoard();
-    setInterval(restart, 8000);
+    setInterval(restart, 10000);
   } else if (distance < 50) {
     distmsg.innerHTML = Math.floor(distance);
     message.style.backgroundColor = "rgba(255, 0, 0, 1)";
@@ -70,6 +69,7 @@ const getMessage = (distance) => {
   }
 };
 
+// Remove and show changes on message
 const deleteMessage = () => {
   intentmsg.parentNode.removeChild(intentmsg);
   let coords = document.getElementById("coords");
@@ -82,15 +82,18 @@ const deleteMessage = () => {
   intentos.style.background = "yellow";
 };
 
+
 const showCoords = (event) => {
   if (mousecoords == true) {
-    var x = event.clientX;
-    var y = event.clientY;
-    var coor = x + "/" + y;
+    let x = event.clientX;
+    let y = event.clientY;
+    let coor = x + "/" + y;
     document.getElementById("coords").innerHTML = coor;
   }
 };
 
+
+// Show new Modal window
 const foundTresore = () => {
   message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>en el Block Notas y veras como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
   const imgTresor = document.getElementById("map-img");
@@ -98,16 +101,9 @@ const foundTresore = () => {
   imgTresor.style.height = "350px";
 };
 
-// Draw
-
-// Web storage objects localStorage and sessionStorage allow to save key/value pairs in the browser.
+// Saved in object player key/value pairs and set the values in localStorage from browser sessions 
 // localstore solo almacena strings - para serializar como un json usamos: JSON.stringify
 const saveStorage = (intentos) => {
-  console.log(localStorage.length);
-  console.log(`numgame: ${numgame}`);
-  if (localStorage.length == 0) {
-    console.log("localStore is empty");
-  }
   numgame++;
   let player = {
     sesion: numgame,
@@ -118,27 +114,29 @@ const saveStorage = (intentos) => {
   returnArray(localStorage);
 };
 
+
+// Read localStorage
 const returnArray = (localStorage) => {
   const listaGames = [];
-  console.log(`listaGames start:${listaGames}`);
-  // Objects.key Returns an array containing the names of all of the given object's own enumerable string properties.
+  // Object.keys()acepta un objeto como argumento y devuelve una matriz de todas sus (propias) propiedades.
   // Objects.value Returns an array containing the values that correspond to all of a given object's own enumerable string properties.
   Object.keys(localStorage).forEach(function (key) {
     //console.log(localStorage.getItem(key));
     // Transform string to obj with JSON
     objets = JSON.parse(localStorage.getItem(key));
     console.log(objets);
-    //Save objets on array
+    //Saved objets on array
     listaGames.push(objets);
     console.log(listaGames.length);
   });
   console.log(listaGames);
 
   if (listaGames.length > 1) {
-    // / Shows all indexes, not just those with assigned values
+    // Shows all indexes, not just those with assigned values
     listaGames.find(function (value, index) {
       console.log("Visited index ", index, " with value ", value);
     });
+
     let games = listaGames.length;
     console.log(`Number off games: ${games}`);
 
