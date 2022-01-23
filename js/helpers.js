@@ -22,7 +22,7 @@ const showIntentos = (intentos) => {
 // Copy to clipBoard
 const secretClipBoard = () => {
   let texto =
-    "Si has llegado hasta aquí estás cerca de la recompensa \n 42.63169393537795, 0.6565823348016667 \n ¿Qué lugar marcan las coordenadas? \n Etiqueta @walkexperience con la respuesta en Instagram o Twitter y recibirás tu premio";
+    "Si has llegado hasta aquí estás cerca de la recompensa \n 42.63169393537795, 0.6565823348016667 \n ¿Qué lugar marcan las coordenadas? \n envíame la respuesta y recibirás tu premio";
   document.oncopy = (event) => {
     event.preventDefault();
     event.clipboardData.setData("text/plain", texto);
@@ -45,7 +45,7 @@ const getMessage = (distance) => {
     deleteMessage();
     saveStorage(intentos);
     secretClipBoard();
-    setInterval(restart, 10000);
+    //setInterval(restart, 10000);
   } else if (distance < 50) {
     distmsg.innerHTML = Math.floor(distance);
     message.style.backgroundColor = "rgba(255, 0, 0, 1)";
@@ -82,7 +82,6 @@ const deleteMessage = () => {
   intentos.style.background = "yellow";
 };
 
-
 const showCoords = (event) => {
   if (mousecoords == true) {
     let x = event.clientX;
@@ -92,16 +91,15 @@ const showCoords = (event) => {
   }
 };
 
-
 // Show new Modal window
 const foundTresore = () => {
-  message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>en el Block Notas y veras como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
+  message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>en el Block Notas y ver como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
   const imgTresor = document.getElementById("map-img");
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";
 };
 
-// Saved in object player key/value pairs and set the values in localStorage from browser sessions 
+// Saved in object player key/value pairs and set the values in localStorage from browser sessions
 // localstore solo almacena strings - para serializar como un json usamos: JSON.stringify
 const saveStorage = (intentos) => {
   numgame++;
@@ -110,10 +108,8 @@ const saveStorage = (intentos) => {
     intentos: intentos,
   };
   localStorage.setItem(numgame, JSON.stringify(player));
-
   returnArray(localStorage);
 };
-
 
 // Read localStorage
 const returnArray = (localStorage) => {
@@ -129,22 +125,26 @@ const returnArray = (localStorage) => {
     listaGames.push(objets);
     console.log(listaGames.length);
   });
-  console.log(listaGames);
+  //console.log(listaGames);
 
   if (listaGames.length > 1) {
     // Shows all indexes, not just those with assigned values
     listaGames.find(function (value, index) {
       console.log("Visited index ", index, " with value ", value);
     });
-
     let games = listaGames.length;
-    console.log(`Number off games: ${games}`);
+    // Calculate the average
+    let total = 0;
+    for (i = 0; i < games; i++) {
+      let j = listaGames[i].intentos;
+      total = total + j;
+    }
+    let average = total / games;
 
     // Sort array
     sortGames(listaGames);
 
-    // Render results players
-    // Create html table
+    // Render results players and create html table
     const storelocalDiv = document.createElement("div");
     storelocalDiv.id = "score";
     storelocalDiv.className = "main-content-table";
@@ -153,20 +153,21 @@ const returnArray = (localStorage) => {
       <th>Total Games</th>
       <th>Best score</th>
       <th>Worst score</th>
+      <th>Average</th>
       </tr>
       <tr>
       <td>${games}</td>
       <td>${listaGames[0].intentos}</td>
       <td>${listaGames[games - 1].intentos}</td>
+      <td>${average.toFixed(1)}</td>
       </tr>
       </table>`;
     document.body.appendChild(storelocalDiv);
   }
 };
 
-const sortGames = (listaGames) => {
-  // Sort an array of objects by numbers and returns the sorted array
-  // sorts the arrayGames array by ages in ascending order:
+  // Sort an array of objects by numbers and returns the sorted array. Sorts the arrayGames by intentos in ascending order:
+  const sortGames = (listaGames) => {
   listaGames.sort((a, b) => {
     return a.intentos - b.intentos;
   });
@@ -175,14 +176,16 @@ const sortGames = (listaGames) => {
   });
 };
 
+// Restar de game reloading de page
 const restart = () => {
   location.reload();
 };
 
 // Geolocation
 const success = (pos) => {
-  var crd = pos.coords;
-  console.log(`Your current position is Latitude : ${crd.latitude} and Longitude ${crd.longitude}`
+  const crd = pos.coords;
+  console.log(
+    `Your current position is Latitude : ${crd.latitude} and Longitude ${crd.longitude}`
   );
 };
 const error = (err) => {
