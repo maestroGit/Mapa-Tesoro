@@ -149,10 +149,11 @@ const returnArray = (localStorage) => {
     storelocalDiv.id = "score";
     storelocalDiv.className = "main-content-table";
     storelocalDiv.innerHTML = `<table class ="content-table">
+    <tr><th colspan ="4">SCORE</th></tr>
       <tr>
-      <th>Total Games</th>
-      <th>Best score</th>
-      <th>Worst score</th>
+      <th>Games</th>
+      <th>Best</th>
+      <th>Worst</th>
       <th>Average</th>
       </tr>
       <tr>
