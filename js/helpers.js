@@ -175,8 +175,13 @@ const returnArray = (localStorage) => {
       <td>${listaGames[games - 1].intentos}</td>
       <td>${average.toFixed(1)}</td>
       </tr>
+      <tr><th colspan ="4"><button id="btnStart">START</button></th></tr>
+      <tr>
       </table>`;
     document.body.appendChild(storelocalDiv);
+    const btnStart= document.getElementById("btnStart");
+    console.log(btnStart)
+    btnStart.addEventListener('click',restart)
   }
 };
 
