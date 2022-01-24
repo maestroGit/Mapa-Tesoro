@@ -8,8 +8,20 @@ const numRandom = (size) => {
 const detectClickPosition = (e) => {
   const UserPoint = { Xcoord: e.clientX, Ycoord: e.clientY };
   getDistance(UserPoint);
+  drawImage(e);
   intentos++;
   showIntentos(intentos);
+};
+
+// images
+const myImage = new Image(10, 10);
+
+const drawImage = (e) => {
+  myImage.src = "./img/transprent-pala.png";
+  myImage.id = "hole";
+  myImage.style.top = e.clientY + "px";
+  myImage.style.left = e.clientX + "px";
+  document.body.appendChild(myImage);
 };
 
 // Show number off times
@@ -77,9 +89,9 @@ const deleteMessage = () => {
   mousecoords = false;
   let distance = document.getElementById("distance");
   distance.parentNode.removeChild(distance);
-  let intentos = document.getElementById("message");
-  intentos.style.width = "90%";
-  intentos.style.background = "yellow";
+  let message = document.getElementById("message");
+  message.style.width = "90%";
+  message.style.background = "#fffc4e";
 };
 
 const showCoords = (event) => {
@@ -93,10 +105,11 @@ const showCoords = (event) => {
 
 // Show new Modal window
 const foundTresore = () => {
-  message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>en el Block Notas y ver como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
+  message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copiar el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y ver como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
   const imgTresor = document.getElementById("map-img");
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";
+  map.removeEventListener("click", detectClickPosition);
 };
 
 // Saved in object player key/value pairs and set the values in localStorage from browser sessions
@@ -167,8 +180,8 @@ const returnArray = (localStorage) => {
   }
 };
 
-  // Sort an array of objects by numbers and returns the sorted array. Sorts the arrayGames by intentos in ascending order:
-  const sortGames = (listaGames) => {
+// Sort an array of objects by numbers and returns the sorted array. Sorts the arrayGames by intentos in ascending order:
+const sortGames = (listaGames) => {
   listaGames.sort((a, b) => {
     return a.intentos - b.intentos;
   });
