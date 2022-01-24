@@ -105,7 +105,7 @@ const showCoords = (event) => {
 
 // Show new Modal window
 const foundTresore = () => {
-  message.innerHTML = `<div class=modal-text><p>Tienes 8 segundo para copiar el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y ver como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
+  message.innerHTML = `<div class=modal-text><p>Copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y verás como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
   const imgTresor = document.getElementById("map-img");
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";
