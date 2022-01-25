@@ -14,7 +14,7 @@ const detectClickPosition = (e) => {
 };
 
 // images
-const myImage = new Image(10, 10);
+const myImage = new Image();
 
 const drawImage = (e) => {
   myImage.src = "./img/transprent-pala.png";
@@ -110,6 +110,13 @@ const foundTresore = () => {
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";
   map.removeEventListener("click", detectClickPosition);
+  if(localStorage.length<1){
+    const btnStart = document.createElement("div");
+    btnStart.classList.add("main-content-msg");
+    btnStart.innerHTML = `<button type="button" class="btn-start">START</button>`;
+    document.body.appendChild(btnStart);
+    btnStart.addEventListener('click', restart);
+  }
 };
 
 // Saved in object player key/value pairs and set the values in localStorage from browser sessions
@@ -175,12 +182,11 @@ const returnArray = (localStorage) => {
       <td>${listaGames[games - 1].intentos}</td>
       <td>${average.toFixed(1)}</td>
       </tr>
-      <tr><th colspan ="4"><button id="btnStart">START</button></th></tr>
+      <tr><th colspan ="4"><button class="btn-start" id="btnStart">START</button></th></tr>
       <tr>
       </table>`;
     document.body.appendChild(storelocalDiv);
     const btnStart= document.getElementById("btnStart");
-    console.log(btnStart)
     btnStart.addEventListener('click',restart)
   }
 };
