@@ -80,19 +80,19 @@ const getMessage = (distance) => {
   }
 };
 
-// Remove and show changes on message
-const deleteMessage = () => {
-  intentmsg.parentNode.removeChild(intentmsg);
-  let coords = document.getElementById("coords");
-  coords.parentNode.removeChild(coords);
-  mousecoords = false;
-  let distance = document.getElementById("distance");
-  distance.parentNode.removeChild(distance);
-  let message = document.getElementById("message");
-  message.style.width = "90%";
-  message.style.background = "#fffc4e";
-  imgClick.style.visibility = "hidden";
-};
+//  Remove and show changes on message
+// const deleteMessage = () => {and
+//   intentmsg.parentNode.removeChild(intentmsg);
+//   let coords = document.getElementById("coords");
+//   coords.parentNode.removeChild(coords);
+//   mousecoords = false;
+//   let distance = document.getElementById("distance");
+//   distance.parentNode.removeChild(distance);
+//   let message = document.getElementById("message");
+//   message.style.width = "90%";
+//   message.style.background = "#fffc4e";
+//   imgClick.style.visibility = "hidden";
+// };
 
 const showCoords = (event) => {
   if (mousecoords == true) {
@@ -105,7 +105,7 @@ const showCoords = (event) => {
 
 // Show new Modal window
 const foundTresore = () => {
-  mainContent.innerHTML = `<div class=modal-text><p>Copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y verás como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
+  mainContent.innerHTML = `<div class=modal-text><p>Copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y verás como obtener tu recompensa.</p></div>`;
   const imgTresor = document.getElementById("map-img");
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";
@@ -170,7 +170,7 @@ const returnArray = (localStorage) => {
     storelocalDiv.id = "score";
     storelocalDiv.className = "main-content-table";
     storelocalDiv.innerHTML = `<table class ="content-table">
-    <tr><th colspan ="4">SCORE</th></tr>
+    <tr><th colspan ="4">SCORE:${intentos}</th></tr>
       <tr>
       <th>Games</th>
       <th>Best</th>
