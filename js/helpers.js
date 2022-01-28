@@ -13,15 +13,14 @@ const detectClickPosition = (e) => {
   showIntentos(intentos);
 };
 
-// images
-const myImage = new Image();
-
+// Draw image when clicked
+const imgClick = new Image();
 const drawImage = (e) => {
-  myImage.src = "./img/transprent-pala.png";
-  myImage.id = "hole";
-  myImage.style.top = e.clientY + "px";
-  myImage.style.left = e.clientX + "px";
-  document.body.appendChild(myImage);
+  imgClick.src = "./img/pala-transpart.png";
+  imgClick.id = "hole";
+  imgClick.style.top = e.clientY + "px";
+  imgClick.style.left = e.clientX + "px";
+  document.body.appendChild(imgClick);
 };
 
 // Show number off times
@@ -54,7 +53,7 @@ const getDistance = (UserPoint) => {
 const getMessage = (distance) => {
   if (distance < 40) {
     foundTresore();
-    deleteMessage();
+    //deleteMessage();
     saveStorage(intentos);
     secretClipBoard();
     //setInterval(restart, 10000);
@@ -92,6 +91,7 @@ const deleteMessage = () => {
   let message = document.getElementById("message");
   message.style.width = "90%";
   message.style.background = "#fffc4e";
+  imgClick.style.visibility = "hidden";
 };
 
 const showCoords = (event) => {
@@ -105,11 +105,12 @@ const showCoords = (event) => {
 
 // Show new Modal window
 const foundTresore = () => {
-  message.innerHTML = `<div class=modal-text><p>Copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y verás como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
+  mainContent.innerHTML = `<div class=modal-text><p>Copia el código:</p><p><span class ="text">jA@j7-aKOug</span></p><p>Pégalo en el Block Notas y verás como obtener tu recompensa.</p>Encontrado en ${intentos} intentos.</div>`;
   const imgTresor = document.getElementById("map-img");
   imgTresor.src = "./img/chest-treasure.jpg";
   imgTresor.style.height = "350px";
   map.removeEventListener("click", detectClickPosition);
+  map.removeEventListener("mousemove", showCoords);
   if(localStorage.length<1){
     const btnStart = document.createElement("div");
     btnStart.classList.add("main-content-msg");

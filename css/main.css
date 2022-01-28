@@ -142,17 +142,16 @@ th {
   position: absolute;
   top: 0px;
   left: 0px;
-  width: 2%;
-  height: 2%;
+  width: 0.5%;
+  height: 0.5%;
+  visibility: visible;
 }
 
 #hole:hover {
   border-radius: 30%;
   -webkit-border-radius: 50%;
-  box-shadow: 0px 0px 10px 10px #ec731e;
-  -webkit-box-shadow: 0px 0px 10px 10px #ec731e;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  box-shadow: 0px 0px 5px 5px #ec731e;
+  -webkit-box-shadow: 0px 0px 5px 5px #ec731e;
 }
 
 /* button start */
@@ -162,7 +161,6 @@ th {
   color: #000;
   cursor: pointer;
   font-weight: bold;
-  padding: 10px 15px;
   text-align: center;
   transition: 200ms;
   width: 30%;

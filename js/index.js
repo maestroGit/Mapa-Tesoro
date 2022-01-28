@@ -8,6 +8,7 @@ console.log("outerWidth: ",widthClientOuter);
 let height = 500;
 // Elementos del DOM
 const map = document.getElementById("map");
+const mainContent = document.getElementById("main-content");
 const message = document.getElementById("message");
 const distmsg = document.getElementById("distance");
 const intentmsg = document.getElementById("intentos");
