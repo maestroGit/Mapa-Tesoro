@@ -111,6 +111,7 @@ const foundTresore = () => {
   imgTresor.style.height = "350px";
   map.removeEventListener("click", detectClickPosition);
   map.removeEventListener("mousemove", showCoords);
+  imgClick.style.visibility = "hidden";
   if(localStorage.length<1){
     const btnStart = document.createElement("div");
     btnStart.classList.add("main-content-msg");

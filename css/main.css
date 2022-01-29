@@ -184,6 +184,17 @@ th {
   cursor: not-allowed;
 }
 
+/* hole pala*/
+.hole {
+  width: 8%;
+  height: 8%;
+}
+
+.hole:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(300deg);
+}
+
 /* When the screen is less than 900px  (tablets and smartphone)*/
 @media only screen and (max-width: 900px) {
   .main-content-msg {
